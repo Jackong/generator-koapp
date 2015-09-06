@@ -1,0 +1,51 @@
+{
+  "name": "<%= appname %>",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --harmony index.js",
+    "test": "mocha -r ./test/bootstrap --harmony test/*",
+    "jsdoc": "jsdoc schemas/* models/* -d public/jsdoc",
+    "apidoc": "apidoc -i routes/ -o public/apidoc/"
+  },
+  "apidoc": {
+    "title": "API for <%= appname %>",
+    "url": "<%= api %>",
+    "sampleUrl": "<%= api %>",
+    "footer": {
+        "title": "error code",
+        "filename": "routes/footer.md"
+    }
+  },
+  "author": "<%= name %> <<%= email %>>",
+  "dependencies": {
+    "acl": "^0.4.7",
+    "api-code": "^1.0.0",
+    "co": "^4.6.0",
+    "config": "^1.14.0",
+    "debug": "^2.2.0",
+    "koa": "^0.21.0",
+    "koa-acl": "^2.0.2",
+    "koa-bodyparser": "^2.0.0",
+    "koa-input": "^1.0.5",
+    "koa-jwt": "^1.1.1",
+    "koa-mongoose": "^1.0.8",
+    "koa-router": "^5.1.2",
+    "koa-logger": "^1.2.2",
+    "koa-response-time": "^1.0.2",
+    "koa-version": "^0.2.0",
+    "mongodb": "^2.0.40",
+    "underscore": "^1.8.3",
+    "validator": "^3.41.2",
+    "winston": "^1.0.1"
+  },
+  "devDependencies": {
+    "apidoc": "^0.13.1",
+    "chai": "^3.0.0",
+    "chai-as-promised": "^5.1.0",
+    "gulp": "^3.9.0",
+    "jsdoc": "^3.3.2",
+    "mocha": "^2.2.5",
+    "supertest-koa-agent": "^0.2.1"
+  }
+}

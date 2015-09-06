@@ -1,0 +1,9 @@
+app:
+  image: node:0.12.7
+  volumes:
+    - .:/code
+    - /var/log/app/<%= appname %>:/var/log/app/<%= appname %>
+  working_dir: /code
+  command: npm start
+  environment:
+    - PORT=80
