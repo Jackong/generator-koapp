@@ -10,8 +10,8 @@
   },
   "apidoc": {
     "title": "API for <%= appname %>",
-    "url": "<%= api %>",
-    "sampleUrl": "<%= api %>",
+    "url": "http://<%= domain %>/api",
+    "sampleUrl": "http://<%= domain %>/api",
     "footer": {
         "title": "error code",
         "filename": "routes/footer.md"

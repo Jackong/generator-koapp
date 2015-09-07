@@ -13,25 +13,14 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the doozie ' + chalk.red('Koapp') + ' generator!'
     ));
 
-    this.prompt([
+    this.prompt(
         {
           type    : 'input',
-          name    : 'api',
-          message : 'Your api',
-          default : util.format('http://%s/api', this.appname)
-      },
-      {
-         type: 'input',
-         name: 'name',
-         message: 'Your name'
-     },
-     {
-         type: 'input',
-         name: 'email',
-         message: 'Your email'
-     }
-    ], function (answers) {
-        this.props = answers
+          name    : 'domain',
+          message : 'Your api domain',
+          default : this.appname
+      }, function (props) {
+        this.props = props
         done()
     }.bind(this));
   },
@@ -43,9 +32,9 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('package.json'),
         {
             appname: this.appname,
-            api: this.props.api,
-            name: this.props.name,
-            email: this.props.email
+            domain: this.props.domain,
+            name: this.user.git.name(),
+            email: this.user.git.email()
         }
       );
       this.fs.copyTpl(
