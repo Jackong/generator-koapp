@@ -4,6 +4,8 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
 var util = require('util');
+var shell = require('shelljs')
+var exec = require('child_process').exec
 
 module.exports = yeoman.generators.Base.extend({
   prompting: function () {
@@ -67,6 +69,10 @@ module.exports = yeoman.generators.Base.extend({
             this.destinationPath('test')
         );
 
+        shell.mkdir(this.destinationPath('keys'))
+        shell.exec('openssl genrsa -out keys/private.pem 2048', { silent: true }).output.trim()
+        shell.exec('openssl rsa -in keys/private.pem -pubout -out keys/public.pem', {silent: true}).output.trim()
+
         this.fs.copyTpl(
             this.templatePath('config'),
             this.destinationPath('config'),
@@ -79,6 +85,7 @@ module.exports = yeoman.generators.Base.extend({
             this.templatePath('routes'),
             this.destinationPath('routes')
         );
+
     },
 
     docker: function() {
