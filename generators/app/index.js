@@ -78,9 +78,12 @@ module.exports = yeoman.generators.Base.extend({
             this.destinationPath('test')
         );
 
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('config'),
-            this.destinationPath('config')
+            this.destinationPath('config'),
+            {
+                appname: this.appname
+            }
         );
 
         this.fs.copy(

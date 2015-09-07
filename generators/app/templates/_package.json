@@ -43,7 +43,6 @@
     "apidoc": "^0.13.1",
     "chai": "^3.0.0",
     "chai-as-promised": "^5.1.0",
-    "gulp": "^3.9.0",
     "jsdoc": "^3.3.2",
     "mocha": "^2.2.5",
     "supertest-koa-agent": "^0.2.1"
