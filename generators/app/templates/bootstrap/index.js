@@ -20,6 +20,7 @@ var bootstrap = module.exports = () => {
     .catch()
     .header()
     .jwt()
+    .acl()
     .mongoose()
     .route()
 }
@@ -58,6 +59,35 @@ bootstrap.route = () => {
 
 bootstrap.mongoose = () => {
     app.use(mongoose(config.get('mongo')))
+    return bootstrap
+}
+
+bootstrap.acl = () => {
+    var backendMap = {}
+    var options = config.get('acl');
+
+    app.use(
+        ACL({
+            user: ctx => ctx.state.user._id,
+            backend: ctx => {
+                var database = ctx.headers['x-app']
+                if (_.has(backendMap, database)) {
+                    return Promise.resolve(backendMap[database])
+                }
+                var url = util.format('mongodb://%s:%s/%s', options.host, options.port, database);
+                return new Promise((resolve, reject) => {
+                    mongodb.connect(url, (err, db) => {
+                        if (err) {
+                            log.error('failed to connect acl db', {database: database, err: err});
+                            return reject(err);
+                        }
+                        backendMap[database] = new Acl.mongodbBackend(db);
+                        resolve(backendMap[database]);
+                    })
+                })
+            }
+        })
+    )
     return bootstrap
 }
 
