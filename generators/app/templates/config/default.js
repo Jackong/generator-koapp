@@ -1,11 +1,13 @@
 var path = require('path')
 var fs = require('fs')
+var pkg = require('../package.json')
 
 const APP_PATH = path.join(__dirname, '..');
 
 var config = module.exports = {
     debug: true,
     log: {
+        name: pkg.name,
         dir: '/var/log/app/<%= appname %>/',
         level: 'debug',
         daily: '.yyyy-MM-dd'

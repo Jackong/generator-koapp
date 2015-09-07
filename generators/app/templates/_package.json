@@ -33,7 +33,7 @@
     "koa-router": "^5.1.2",
     "koa-logger": "^1.2.2",
     "koa-response-time": "^1.0.2",
-    "koa-version": "^0.2.0",
+    "koa-version-router": "^1.0.0",
     "mongodb": "^2.0.40",
     "underscore": "^1.8.3",
     "validator": "^3.41.2",

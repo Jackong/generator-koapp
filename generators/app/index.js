@@ -60,8 +60,8 @@ module.exports = yeoman.generators.Base.extend({
         );
 
         this.fs.copy(
-            this.templatePath('bootstrap.js'),
-            this.destinationPath('bootstrap.js')
+            this.templatePath('bootstrap'),
+            this.destinationPath('bootstrap')
         );
 
         this.fs.copy(
@@ -111,6 +111,6 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    //this.installDependencies();
+    this.installDependencies();
   }
 });
