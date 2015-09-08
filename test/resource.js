@@ -14,7 +14,10 @@ describe('Koapp:generators/resource', function () {
 
   it('creates files', function () {
     assert.file([
-      'somefile.js'
+      'routes/names.js',
+      'test/routes/names.js',
+      'schemas/name.js',
+      'test/schemas/name.js'
     ]);
   });
 });

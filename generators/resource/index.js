@@ -10,7 +10,7 @@ module.exports = yeoman.generators.NamedBase.extend({
       model: name.charAt(0).toUpperCase() + name.slice(1),
       route: plural(name)
     }
-    
+
     this.fs.copyTpl(
       this.templatePath('route.js'),
       this.destinationPath('routes/' + this.props.route + '.js'),
