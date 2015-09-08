@@ -4,9 +4,9 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('Koapp:generators/route', function () {
+describe('Koapp:generators/resource', function () {
   before(function (done) {
-    helpers.run(path.join(__dirname, '../generators/route'))
+    helpers.run(path.join(__dirname, '../generators/resource'))
       .withArguments('name')
       .withOptions({ skipInstall: true, force: true })
       .on('end', done);

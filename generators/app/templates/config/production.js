@@ -1,4 +1,7 @@
 
 var config = module.exports = {
-    debug: false
+    debug: false,
+    log: {
+        level: 'info'
+    }
 }

@@ -3,7 +3,7 @@ var input = require('koa-input')
 var code = require('api-code')
 
 var router = module.exports = require('koa-router')({
-    prefix: '/api/<%= name %>'
+    prefix: '/api/<%= route %>'
 })
 
 router.post('/',
@@ -12,13 +12,13 @@ router.post('/',
     }
 )
 
-router.put('/:<%= name %>',
+router.put('/:<%= route %>',
     function* (next) {
 
     }
 )
 
-router.patch('/:<%= name %>',
+router.patch('/:<%= route %>',
     function* (next) {
 
     }
@@ -30,13 +30,13 @@ router.get('/',
     }
 )
 
-router.get('/:<%= name %>',
+router.get('/:<%= route %>',
     function* (next) {
 
     }
 )
 
-router.delete('/:<%= name %>',
+router.delete('/:<%= route %>',
     function* (next) {
 
     }
