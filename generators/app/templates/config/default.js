@@ -15,7 +15,7 @@ var config = module.exports = {
     mongo: {
         user: '',
         pass: '',
-        host: 'mongo.<%= appname %>',
+        host: 'mongo.<%= domain %>',
         port: 27017,
         database: '<%= appname %>',
         db: {
@@ -26,7 +26,7 @@ var config = module.exports = {
         }
     },
     acl: {
-      host: 'acl.mongo.<%= appname %>',
+      host: 'acl.mongo.<%= domain %>',
       port: 27017
     },
     keys: {

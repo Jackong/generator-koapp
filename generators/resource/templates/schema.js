@@ -1,6 +1,7 @@
 var mongoose = require('koa-mongoose').mongoose;
 
 var schema = module.exports = new mongoose.Schema({
+    isValid: {type: Boolean, default: true},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now}
 })

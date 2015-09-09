@@ -77,7 +77,8 @@ module.exports = yeoman.generators.Base.extend({
             this.templatePath('config'),
             this.destinationPath('config'),
             {
-                appname: this.appname
+                appname: this.appname,
+                domain: this.props.domain
             }
         );
 
